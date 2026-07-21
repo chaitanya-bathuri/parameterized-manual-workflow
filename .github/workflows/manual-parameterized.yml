@@ -26,10 +26,11 @@ jobs:
       - name: Set validation status
         id: set-status
         run: |
-          if [ "${{ github.event.inputs.run_validation }}" == "true" ]; then
+          if [ "${{ github.event.inputs.run_validation }}" = "true" ]; then
             echo "status=success" >> $GITHUB_OUTPUT
           else
             echo "status=skipped" >> $GITHUB_OUTPUT
+          fi
 
   summary:
     runs-on: ubuntu-latest
